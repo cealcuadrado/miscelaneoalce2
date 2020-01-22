@@ -20,6 +20,9 @@ module.exports = function(grunt){
                 all: 'public/src/**/*.css'
             }
         },
+        jshint: {
+            all: ['Gruntfile.js', 'public/src/**/*.js']
+        },
         htmlmin: {
             options: {
                     compress: true,
@@ -42,9 +45,45 @@ module.exports = function(grunt){
                 sourceMap: true
             },
             dist: {
-                files: {
-                    'public/dist/css/main.min.css':'public/src/sass/main.scss'
-                }
+               src: 'public/src/sass/main.scss',
+               dest: 'public/src/css/main.css'
+            }
+        },
+        cssmin: {
+            options: {
+                sourceMap: true
+            },
+            libs: {
+                src: [
+
+                ],
+                dest:'public/dist/css/libs.css'
+            },
+            dist: {
+                src: [
+                    'public/src/css/main.css'
+                ],
+                dest:'public/dist/css/main.min.css'
+            }
+        },
+        uglify: {
+            options: {
+                compress: true,
+                removeComments: true
+            },
+            libs: {
+                src: [
+                    'node_modules/jquery/dist/jquery.js',
+                    'node_modules/@fortawesome/fontawesome-free/js/all.js'
+                ],
+                dest: 'public/dist/libs.js'
+            },
+            dist: {
+                src: [
+                    'public/src/app.js',
+                    'public/src/app/**/*.js'
+                ],
+                dest: 'public/dist/app.js'
             }
         },
         express: {
@@ -66,13 +105,48 @@ module.exports = function(grunt){
             options: {
                 livereload: true
             },
+            gruntfile: {
+                files: [
+                    'Gruntfile.js'
+                ],
+                tasks: [
+                    'htmlhint',
+                    'htmlmin',
+                    'stylelint:sass',
+                    'sass',
+                    'stylelint:css',
+                    'jshint',
+                    'uglify:dist'
+                ]
+            },
             html: {
-                files: ['public/src/**/*.html'],
-                tasks: ['htmlhint', 'htmlmin']
+                files: [
+                    'public/src/**/*.html'
+                ],
+                tasks: [
+                    'htmlhint',
+                    'htmlmin'
+                ]
             },
             sass: {
-                files: ['public/src/**/*.scss'],
-                tasks:['stylelint:sass', 'sass', 'stylelint:css']
+                files: [
+                    'public/src/**/*.scss'
+                ],
+                tasks:[
+                    'stylelint:sass',
+                    'sass',
+                    'stylelint:css',
+                    'cssmin'
+                ]
+            },
+            js: {
+                files: [
+                    'public/src/**/*.js'
+                ],
+                tasks: [
+                    'jshint',
+                    'uglify:dist'
+                ]
             }
         }
     });
@@ -83,8 +157,10 @@ module.exports = function(grunt){
         'stylelint:sass',
         'sass',
         'stylelint:css',
+        'cssmin',
+        'uglify',
         'express',
         'open',
         'watch'
     ]);
-}
+};
