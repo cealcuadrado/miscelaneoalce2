@@ -12,9 +12,10 @@ footer {
                 font-size: 1.5rem;
                 text-decoration: none;
                 color: $heading-color;
+                transition: opacity 0.1s linear;
 
                 &:hover {
-                    color: white;
+                    opacity: 0.5;
                 }
             }
         }
