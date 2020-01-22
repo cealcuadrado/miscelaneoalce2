@@ -1,0 +1,22 @@
+main {
+    padding: 1rem;
+
+    @media screen and (max-width: 767px) {
+        position: static;
+        padding-top: 6.5rem;
+    }
+
+    @media screen and (min-width: 768px) {
+        position: fixed;
+        left: 30vw;
+        width: 70vw;
+        height: 100vh;
+        overflow-y: auto;
+    }
+
+    h1 {
+        text-transform: uppercase;
+        font-family: $heading-font;
+        color: $main-heading-content;
+    }
+}

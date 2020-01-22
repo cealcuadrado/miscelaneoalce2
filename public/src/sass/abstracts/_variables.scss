@@ -1,1 +1,14 @@
-$default-font: 'Arial', 'sans-serif';
+/* Font */
+$default-font: 'Open Sans', 'Arial', 'sans-serif';
+$heading-font: 'Work Sans', 'Arial', 'sans-serif';
+
+/* General */
+$heading-color: #e36049;
+$content-color: #ddc641;
+
+/* Aside / Header */
+$heading-default-color: white;
+$heading-link: $content-color;
+
+/* Main / Footer */
+$main-heading-content: $heading-color;

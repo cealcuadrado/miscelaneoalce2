@@ -18,4 +18,11 @@
 
             $urlRouterProvider.otherwise('/main');
     });
+
+    $(function(){
+        $('#collapseToggle').on('click', function(){
+            console.log('click');
+            $('#collapse').slideToggle();
+        });
+    });
 })();

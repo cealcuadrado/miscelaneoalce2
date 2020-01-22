@@ -1,0 +1,26 @@
+@mixin default-p {
+    margin-block-start: 1rem;
+    margin-block-end: 1rem;
+}
+
+@mixin default-header($header) {
+    $factor: 1;
+
+    @if ($header != 1) {
+        $factor: 0.8 - (0.1 * ($header - 2));
+    }
+
+    font-size: header-size($factor);
+    margin-bottom: 0.5rem;
+}
+
+@mixin default-list {
+    display: block;
+    margin-top: 0 !important;
+    margin-bottom: 10px;
+    margin-block-start: 1rem;
+    margin-block-end: 1rem;
+    margin-inline-start: 0;
+    margin-inline-end: 0;
+    padding-inline-start: 40px;
+}

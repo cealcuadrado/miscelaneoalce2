@@ -1,0 +1,4 @@
+@function header-size($proportion) {
+    @return (2.5 * $proportion)+rem;
+}
+

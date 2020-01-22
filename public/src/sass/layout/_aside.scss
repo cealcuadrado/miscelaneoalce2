@@ -1,0 +1,84 @@
+aside {
+    padding: 1rem;
+    color: $content-color;
+    background-color: $heading-color;
+
+    @media screen and (max-width: 767px) {
+        display: none;
+    }
+
+    @media screen and (min-width: 768px) {
+        position: fixed;
+        padding: 1rem;
+        width: 30vw;
+        height: 100vh;
+        text-align: right;
+
+        & > *:not(:last-child) {
+            margin-bottom: 1rem;
+        }
+
+        nav, .other-blogs {
+            & > *:not(:last-child) {
+                margin-bottom: 0.5rem;
+            }
+
+            a {
+                display: block;
+                font-size: 1.25rem;
+                text-decoration: none;
+                text-transform: uppercase;
+                font-style: italic;
+                font-family: $heading-font;
+                color: $content-color;
+
+                &:hover {
+                    color: white;
+                }
+            }
+        }
+
+        .search {
+            form {
+                & > * {
+                    padding: 0.5rem;
+                }
+
+                input {
+                    border: 1px solid $content-color;
+                }
+
+                button {
+                    background-color: $content-color;
+                    color: $heading-color;
+                    border:0;
+                    border: 1px solid $content-color;
+                    font-family: $heading-font;
+                    font-style: italic;
+                    text-transform: uppercase;
+                    cursor: pointer;
+
+                    &:hover {
+                        background-color: white;
+                    }
+                }
+            }
+        }
+
+        .social {
+            a {
+                font-size: 1.5rem;
+                text-decoration: none;
+                color: $content-color;
+
+                &:hover {
+                    color: white;
+                }
+            }
+        }
+
+        .mail, .copyright {
+            font-size: 0.75rem;
+        }
+    }
+}
