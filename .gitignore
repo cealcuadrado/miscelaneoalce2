@@ -2,3 +2,4 @@ node_modules
 public/dist
 public/release
 public/src/css
+public/src/app.templates.js

@@ -39,6 +39,17 @@ module.exports = function(grunt){
                 dest:'public/dist/index.html'
             }
         },
+        ngtemplates: {
+            app: {
+                cwd: 'public/src/app',
+                src: ['views/**/*.html'],
+                dest: 'public/src/app.templates.js',
+                options: {
+                    module: 'app',
+                    htmlmin: '<%= htmlmin.options %>'
+                }
+            }
+        },
         sass: {
             options: {
                 implementation: nodeSass,
@@ -69,18 +80,28 @@ module.exports = function(grunt){
         uglify: {
             options: {
                 compress: true,
-                removeComments: true
+                removeComments: true,
+                mangle: {
+                    reserved: [
+                        '$stateProvider',
+                        '$urlRouterProvider'
+                    ]
+                }
             },
             libs: {
                 src: [
                     'node_modules/jquery/dist/jquery.js',
-                    'node_modules/@fortawesome/fontawesome-free/js/all.js'
+                    'node_modules/@fortawesome/fontawesome-free/js/all.js',
+                    'node_modules/angular/angular.js',
+                    'node_modules/angular-animate/angular-animate.js',
+                    'node_modules/@uirouter/angularjs/release/angular-ui-router.js'
                 ],
-                dest: 'public/dist/libs.js'
+                dest: 'public/dist/js/libs.js'
             },
             dist: {
                 src: [
                     'public/src/app.js',
+                    'public/src/app.templates.js',
                     'public/src/app/**/*.js'
                 ],
                 dest: 'public/dist/app.js'
@@ -125,7 +146,10 @@ module.exports = function(grunt){
                 ],
                 tasks: [
                     'htmlhint',
-                    'htmlmin'
+                    'htmlmin',
+                    'ngtemplates',
+                    'jshint',
+                    'uglify:dist'
                 ]
             },
             sass: {
@@ -154,6 +178,7 @@ module.exports = function(grunt){
     grunt.registerTask('serve', [
         'htmlhint',
         'htmlmin',
+        'ngtemplates',
         'stylelint:sass',
         'sass',
         'stylelint:css',
