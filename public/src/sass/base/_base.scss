@@ -1,3 +1,25 @@
+
+* {
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+}
+
 body {
     font-family: $default-font;
+    background-color: $content-color;
+}
+
+@for $i from 1 through 6 {
+    h#{$i} {
+        @include default-header($i);
+    }
+}
+
+dl, ol, ul {
+    @include default-list;
+}
+
+p {
+    @include default-p;
 }

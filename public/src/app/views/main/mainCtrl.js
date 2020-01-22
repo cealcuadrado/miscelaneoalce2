@@ -7,6 +7,6 @@
 
     function mainCtrl($scope){
         var vm = this;
-        vm.title = 'Main';
+        vm.title = 'Misceláneo al Cuadrado';
     }
 })();

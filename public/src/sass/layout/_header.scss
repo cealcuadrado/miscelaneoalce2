@@ -1,0 +1,105 @@
+header {
+    @media screen and (max-width: 767px) {
+        position: fixed;
+        top: 0;
+        background-color: $heading-color;
+        color: $content-color;
+        border-bottom: 1px solid black;
+        width: 100vw;
+        box-shadow: 3px 3px 5px black;
+
+        & > *:not(:last-child) {
+            margin-bottom: 0.5rem;
+        }
+
+        .controls {
+            padding: 1rem;
+            display: flex;
+
+            &>*:not(:last-child) {
+                margin-right: 1rem;
+            }
+
+            img {
+                width: 50px;
+                height: 50px;
+            }
+
+            button {
+                width: 50px;
+                height: 50px;
+                background-color: $content-color;
+                color: $heading-color;
+                border: 0;
+                cursor: pointer;
+
+                &:hover {
+                    background-color: white;
+                }
+            }
+        }
+
+        .collapse {
+            display: none;
+            &>*:not(:last-child) {
+                margin-bottom: 0.5rem;
+            }
+
+            .search {
+                padding: 0.5rem 1rem;
+
+                form {
+                    display: flex;
+
+                    &>* {
+                        padding: 0.5rem;
+                    }
+
+                    &>*:not(:last-child) {
+                        margin-right: 1rem;
+                    }
+
+                    input {
+                        width: 60%;
+                        border: 1px solid $content-color;
+                    }
+
+                    button {
+                        width: 35%;
+                        background-color: $content-color;
+                        color: $heading-color;
+                        font-family: $heading-font;
+                        font-style: italic;
+                        text-transform: uppercase;
+                        border: 0;
+                        cursor:pointer;
+
+                        &:hover {
+                            background-color: white;
+                        }
+                    }
+                }
+            }
+
+            nav {
+                a {
+                    padding: 1rem;
+                    display: block;
+                    color: $content-color;
+                    text-decoration: none;
+                    text-transform: uppercase;
+                    font-family: $heading-font;
+                    font-style: italic;
+
+                    &:hover {
+                        color: white;
+                    }
+                }
+            }
+        }
+    }
+
+    @media screen and (min-width: 768px) {
+        display: none;
+    }
+}

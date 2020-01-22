@@ -1,0 +1,31 @@
+footer {
+    @media screen and (max-width: 767px) {
+        position: static;
+        text-align:center;
+
+        & > * {
+            margin-bottom: 1rem;
+        }
+
+        .social {
+            a {
+                font-size: 1.5rem;
+                text-decoration: none;
+                color: $heading-color;
+
+                &:hover {
+                    color: white;
+                }
+            }
+        }
+
+        .mail, .copyright {
+            color: $heading-color;
+            font-size: 0.75rem;
+        }
+    }
+
+    @media screen and (min-width: 768px) {
+        display: none;
+    }
+}

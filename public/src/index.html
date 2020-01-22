@@ -1,20 +1,144 @@
 <!DOCTYPE html>
 <html lang="es" ng-app="app">
+
 <head>
     <title>Misceláneo al Cuadrado</title>
-    <meta charset="UTF-8"/>
-    <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
-    <link rel="stylesheet" href="css/libs.css"/>
-    <link rel="stylesheet" href="css/main.min.css"/>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans|Work+Sans:900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/libs.css" />
+    <link rel="stylesheet" href="css/main.min.css" />
 </head>
+
 <body>
-    <aside>
+    <header>
+        <div class="controls">
+            <img src="http://via.placeholder.com/125"/>
+
+            <button id="collapseToggle">
+                <i class="fas fa-bars fa-fw"></i>
+            </button>
+        </div>
+
+        <div class="collapse" id="collapse">
+            <section class="search">
+                <form>
+                    <input type="search" placeholder="Texto o tag"/>
+                    <button type="submit">
+                        <i class="fas fa-search fa-fw"></i> Buscar
+                    </button>
+                </form>
+            </section>
+
+            <nav>
+                <a href="#">
+                    <i class="fas fa-home fa-fw"></i> Home
+                </a>
+                <a href="#">
+                    <i class="fas fa-archive fa-fw"></i> Archivo
+                </a>
+                <a href="#">
+                    <i class="fas fa-random fa-fw"></i> Post al azar
+                </a>
+                <a href="#">
+                    <i class="fas fa-rss fa-fw"></i> RSS
+                </a>
+            </nav>
+        </div>
+    </header>
+
+    <aside ng-controller="menuCtrl as vm">
+        <img src="http://via.placeholder.com/125" />
+
+        <nav>
+            <a href="#">
+                <i class="fas fa-home fa-fw"></i> Home
+            </a>
+            <a href="#">
+                <i class="fas fa-archive fa-fw"></i> Archivo
+            </a>
+            <a href="#">
+                <i class="fas fa-random fa-fw"></i> Post al azar
+            </a>
+            <a href="#">
+                <i class="fas fa-rss fa-fw"></i> RSS
+            </a>
+        </nav>
+
+        <section class="search">
+            <form>
+                <input type="search" placeholder="Texto o tag"/>
+                <button type="submit">
+                    <i class="fas fa-search fa-fw"></i> Buscar
+                </button>
+            </form>
+        </section>
+
+        <section class="other-blogs">
+            <a href="#">
+                App 1
+            </a>
+            <a href="#">
+                Blog 2
+            </a>
+            <a href="#">
+                Blog 3
+            </a>
+        </section>
+
+        <section class="social">
+            <a href="#">
+                <i class="fab fa-twitter fa-fw"></i>
+            </a>
+            <a href="#">
+                <i class="fab fa-youtube fa-fw"></i>
+            </a>
+            <a href="#">
+                <i class="fab fa-soundcloud fa-fw"></i>
+            </a>
+            <a href="#">
+                <i class="fab fa-flickr fa-fw"></i>
+            </a>
+        </section>
+
+        <section class="mail">
+            <i class="fas fa-envelope fa-fw"></i> cealcuadrado.246@gmail.com
+        </section>
+
+        <section class="copyright">
+            &#169; 2020
+        </section>
     </aside>
-    <main>
-        <ui-view></ui-view>
+    <main ui-view>
     </main>
+
+    <footer>
+        <section class="social">
+            <a href="#">
+                <i class="fab fa-twitter fa-fw"></i>
+            </a>
+            <a href="#">
+                <i class="fab fa-youtube fa-fw"></i>
+            </a>
+            <a href="#">
+                <i class="fab fa-soundcloud fa-fw"></i>
+            </a>
+            <a href="#">
+                <i class="fab fa-flickr fa-fw"></i>
+            </a>
+        </section>
+
+        <section class="mail">
+            <i class="fas fa-envelope fa-fw"></i> cealcuadrado.246@gmail.com
+        </section>
+
+        <section class="copyright">
+            &#169; 2020
+        </section>
+    </footer>
 
     <script src="js/libs.js"></script>
     <script src="app.js"></script>
 </body>
+
 </html>

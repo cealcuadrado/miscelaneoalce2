@@ -1,9 +1,13 @@
 /* Abstract */
 @import 'abstracts/_variables';
+@import 'abstracts/_functions';
+@import 'abstracts/_mixins';
 
 /* Base */
 @import 'base/_base';
 
 /* Layout */
-
-/* Views */
+@import 'layout/_aside';
+@import 'layout/_main';
+@import 'layout/_header';
+@import 'layout/_footer';
