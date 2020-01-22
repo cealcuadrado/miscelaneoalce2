@@ -1,12 +1,24 @@
+var nodeSass = require('node-sass');
 var loadGruntTasks = require('load-grunt-tasks');
 
 module.exports = function(grunt){
     loadGruntTasks(grunt);
-    
+
     grunt.initConfig({
         pkg: grunt.file.readJSON('package.json'),
         htmlhint: {
             all: ['public/src/index.html', 'public/src/**/*.html']
+        },
+        stylelint: {
+            options: {
+                configFile: 'etc/.stylelint'
+            },
+            sass: {
+                all: 'public/src/**/*.scss'
+            },
+            css: {
+                all: 'public/src/**/*.css'
+            }
         },
         htmlmin: {
             options: {
@@ -22,6 +34,17 @@ module.exports = function(grunt){
             dist: {
                 src:'public/src/index.html',
                 dest:'public/dist/index.html'
+            }
+        },
+        sass: {
+            options: {
+                implementation: nodeSass,
+                sourceMap: true
+            },
+            dist: {
+                files: {
+                    'public/dist/css/main.min.css':'public/src/sass/main.scss'
+                }
             }
         },
         express: {
@@ -46,6 +69,10 @@ module.exports = function(grunt){
             html: {
                 files: ['public/src/**/*.html'],
                 tasks: ['htmlhint', 'htmlmin']
+            },
+            sass: {
+                files: ['public/src/**/*.scss'],
+                tasks:['stylelint:sass', 'sass', 'stylelint:css']
             }
         }
     });
@@ -53,6 +80,9 @@ module.exports = function(grunt){
     grunt.registerTask('serve', [
         'htmlhint',
         'htmlmin',
+        'stylelint:sass',
+        'sass',
+        'stylelint:css',
         'express',
         'open',
         'watch'

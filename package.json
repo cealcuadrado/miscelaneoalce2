@@ -5,7 +5,7 @@
   "main": "Gruntfile.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start":"grunt serve"
+    "start": "grunt serve"
   },
   "repository": {
     "type": "git",
@@ -21,6 +21,10 @@
     "grunt-htmlhint": "^0.9.13",
     "grunt-open": "^0.2.4",
     "grunt-parallel": "^0.5.1",
-    "load-grunt-tasks": "^5.1.0"
+    "grunt-sass": "^3.1.0",
+    "grunt-stylelint": "^0.13.0",
+    "load-grunt-tasks": "^5.1.0",
+    "node-sass": "^4.13.1",
+    "stylelint": "^13.0.0"
   }
 }
