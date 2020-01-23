@@ -18,6 +18,11 @@ aside {
             margin-bottom: 1rem;
         }
 
+        img {
+            width: 150px;
+            height: 150px;
+        }
+
         nav, .other-blogs {
             & > *:not(:last-child) {
                 margin-bottom: 0.5rem;
